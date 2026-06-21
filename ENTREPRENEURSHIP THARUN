@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importance of Entrepreneurship - Seminar</title>
+    <style>
+        /* --- Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* --- Smooth Scroll Container --- */
+        scroll-container {
+            display: block;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        /* --- Slide Section Design --- */
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            scroll-snap-align: start;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        /* --- Scroll Progress Bar --- */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            width: 0%;
+            z-index: 100;
+            transition: width 0.1s ease-out;
+        }
+
+        /* --- Typography & Layout --- */
+        h1 {
+            font-size: 3.5rem;
+            color: #38bdf8;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #818cf8;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        .highlight {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        /* Grid for Points */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* --- Animation Engine (Classes toggled by JS) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered entry for cards */
+        .card {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease;
+        }
+
+        .reveal.active .card {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Adding delay for cards */
+        .reveal.active .card:nth-child(1) { transition-delay: 0.1s; }
+        .reveal.active .card:nth-child(2) { transition-delay: 0.2s; }
+        .reveal.active .card:nth-child(3) { transition-delay: 0.3s; }
+        .reveal.active .card:nth-child(4) { transition-delay: 0.4s; }
+        .reveal.active .card:nth-child(5) { transition-delay: 0.5s; }
+        .reveal.active .card:nth-child(6) { transition-delay: 0.6s; }
+        .reveal.active .card:nth-child(7) { transition-delay: 0.7s; }
+
+        /* Navigation Tips */
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.9rem;
+            color: #64748b;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <scroll-container id="scrollContainer">
+        
+        <section class="slide reveal">
+            <h1>Importance of<br><span style="color: #818cf8;">Entrepreneurship</span></h1>
+            <p style="font-size: 1.5rem; color: #94a3b8;">A Seminar Presentation</p>
+            <div class="scroll-hint">↓ Scroll down to begin</div>
+        </section>
+
+        <section class="slide reveal">
+            <h2>Introduction</h2>
+            <p>Good morning everyone. Today I am going to present a seminar on <strong>"Importance of Entrepreneurship."</strong></p>
+            <br>
+            <p>Entrepreneurship is one of the key factors for economic and social development. Entrepreneurs create new businesses, generate employment, and introduce innovative ideas. They contribute significantly to the growth of a nation.</p>
+        </section>
+
+        <section class="slide reveal">
+            <h2>Definition</h2>
+            <p style="font-size: 1.8rem; line-height: 1.6; max-width: 900px;">
+                "Entrepreneurship is the process of <span class="highlight">identifying opportunities</span>, 
+                <span class="highlight">taking risks</span>, organizing resources, and starting a business 
+                to earn profit and provide value to society."
+            </p>
+        </section>
+
+        <section class="slide reveal">
+            <h2>Why Entrepreneurship Matters</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>1. Creates Employment</h3>
+                    <p>Entrepreneurs establish new businesses and industries, creating jobs for many people and reducing unemployment.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Promotes Innovation</h3>
+                    <p>Entrepreneurs introduce new products, services, and technologies that improve people's lives and solve problems.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Supports Economic Growth</h3>
+                    <p>Entrepreneurship increases production, income, and investment, contributing to the growth of the country's economy.</p>
+                </div>
+                <div class="card">
+                    <h3>4. Improves Living Standards</h3>
+                    <p>New products and services improve the quality of life and provide better choices for consumers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide reveal">
+            <h2>Driving Development</h2>
+            <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); max-width: 1000px;">
+                <div class="card">
+                    <h3>5. Encourages Self-Reliance</h3>
+                    <p>Entrepreneurship helps individuals become independent by creating their own employment instead of depending on others for jobs.</p>
+                </div>
+                <div class="card">
+                    <h3>6. Utilizes Resources Effectively</h3>
+                    <p>Entrepreneurs make efficient use of available resources such as labor, capital, and technology.</p>
+                </div>
+                <div class="card">
+                    <h3>7. Promotes Regional Development</h3>
+                    <p>Businesses established in rural and underdeveloped areas help improve infrastructure and create local employment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide reveal">
+            <h2>Conclusion</h2>
+            <p>In conclusion, entrepreneurship plays a vital role in economic and social development. It creates employment, promotes innovation, improves living standards, and contributes to national growth.</p>
+            <br>
+            <p style="color: #38bdf8; font-weight: bold;">Therefore, entrepreneurship is essential for building a prosperous and self-reliant society.</p>
+        </section>
+
+        <section class="slide reveal">
+            <h1 style="font-size: 5rem; background: linear-gradient(45deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Thank You</h1>
+            <p>Questions & Answers</p>
+        </section>
+
+    </scroll-container>
+
+    <script>
+        const container = document.getElementById('scrollContainer');
+        const progressBar = document.getElementById('progressBar');
+        const slides = document.querySelectorAll('.reveal');
+
+        // 1. Update Progress Bar on Scroll
+        container.addEventListener('scroll', () => {
+            const maxScroll = container.scrollHeight - container.clientHeight;
+            const percentage = (container.scrollTop / maxScroll) * 100;
+            progressBar.style.width = percentage + '%';
+        });
+
+        // 2. Intersection Observer to Trigger Slide Animations
+        const observerOptions = {
+            root: container,
+            threshold: 0.4 // Triggers when 40% of the slide is visible
+        };
+
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    // Optional: Remove class to re-animate when scrolling back up
+                    entry.target.classList.remove('active'); 
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => slideObserver.observe(slide));
+
+        // Activate the first slide instantly on load
+        window.addEventListener('DOMContentLoaded', () => {
+            if(slides.length > 0) slides[0].classList.add('active');
+        });
+    </script>
+</body>
+</html>
